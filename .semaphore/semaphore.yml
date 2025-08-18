@@ -12,8 +12,4 @@ blocks:
           commands:
             - checkout
             - 'export SUPERPLANE_URL=https://superplane.sxmoon.com'
-            - 'curl "$SUPERPLANE_URL/api/v1/outputs" -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $SEMAPHORE_OIDC_TOKEN" --data "{\"execution_id\": \"$SUPERPLANE_STAGE_EXECUTION_ID\",\"external_id\": \"$SEMAPHORE_WORKFLOW_ID\",\"outputs\": {\"tag\":\"$tag\"}}"'
-promotions:
-  - name: Promotion 1
-    pipeline_file: pipeline_2.yml
-'
+            - 'curl "$SUPERPLANE_URL/api/v1/outputs" -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $SEMAPHORE_OIDC_TOKEN" --data "{\"execution_id\": \"$SUPERPLANE_STAGE_EXECUTION_ID\",\"external_id\": \"$SEMAPHORE_WORKFLOW_ID\",\"outputs\": {\"sha\":\"$sha\",\"user\":\"$user\",\"docker_image\":\"$docker_image\"}}"'
